@@ -1,11 +1,10 @@
 import styled from 'styled-components';
 
-import { css } from 'styled-components';
-
 export const Fundo = styled.div`
     display: flex;
     justify-content: space-between;
     font-family: 'Nunito', sans-serif;
+    background: #d8f3dc;
 `;
 
 export const Conteudo = styled.div`
@@ -35,7 +34,7 @@ export const Botoes = styled.ul`
     justify-content: space-around;
     width: 100%;
 
-    button {
+    .buttons {
         width: 9.4rem;
         height: 3.4rem;
         border-radius: 0.4rem;
@@ -44,6 +43,8 @@ export const Botoes = styled.ul`
         font-size: 1rem;
         font-family: 'Nunito', sans-serif;
     }
+
+
 `;
 
 export const Botao1 = styled.button`
@@ -75,3 +76,9 @@ export const TituloCor1 = styled.span`
 export const TituloCor2 = styled.span`
     color: #2d6a4f;
 `;
+
+export const PopupContainer = styled.div`
+    position: absolute;
+    left: 50%;
+`;
+

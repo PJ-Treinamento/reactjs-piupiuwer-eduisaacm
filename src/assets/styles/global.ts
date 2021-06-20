@@ -1,5 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
 
+export const fonts = {
+    primary: "'Nunito', sans-serif",
+    secondary: "'Nunito Sans', sans-serif"
+}
+
 export default createGlobalStyle`
     * {
         margin: 0;
@@ -12,10 +17,8 @@ export default createGlobalStyle`
     }
 
     body {
-    background: #d8f3dc;
     color: #333;
     -webkit-font-smoothing: antialiased;
     color: black;
     }
 `;
-
