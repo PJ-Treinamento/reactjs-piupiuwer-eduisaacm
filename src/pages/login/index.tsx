@@ -6,6 +6,9 @@ import LoginPopUp from "../../components/LoginPopUp";
 import fundoLogin from "../../assets/images/fundo-login.png";
 import Logo from "../../assets/images/logo.svg";
 
+import { useAuth } from "../../hooks/auth";
+import api from "../../services/api";
+
 
 
 function Login() {
@@ -26,9 +29,10 @@ function Login() {
                         </li>
                         <li>
                             <S.Botao2 className="buttons" onClick={() => setIsModalVisible(true) }>Entrar</S.Botao2>
-                            {isModalVisible && <LoginPopUp onClose={() => setIsModalVisible(false)}>
-                            
-                            
+                            {isModalVisible && 
+                            <LoginPopUp 
+                                onClose={() => setIsModalVisible(false)}
+                            >
                             </LoginPopUp>
                             }
                         </li>

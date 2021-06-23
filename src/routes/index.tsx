@@ -12,7 +12,11 @@ const Routes: React.FC = () => {
     return (
         <Switch>
             <Route path="/" exact component={ Login } />
-            <Route path="/feed" component={ Feed } />
+            <Route 
+                path="/feed"   
+                component={ Feed } 
+                isPrivate
+            />
 
             <Route component={ Redirection } />
         </Switch>

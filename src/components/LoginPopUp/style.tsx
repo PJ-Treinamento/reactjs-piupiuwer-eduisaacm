@@ -18,7 +18,7 @@ export const PopupContainer = styled.div`
     .container {
         background-color: white;
         width: 30rem;
-        height: 27.5rem; 
+        height: 28.5rem; 
         border-radius: 20px;
         display: flex;
         flex-direction: column;
