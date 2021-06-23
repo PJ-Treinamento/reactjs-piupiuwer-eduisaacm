@@ -22,7 +22,7 @@ function Login() {
                     <S.Logo src={ Logo } alt="Piupiwer" />
                     <div>
                         <S.Titulo><S.TituloCor1>Piu</S.TituloCor1><S.TituloCor2>piwer</S.TituloCor2></S.Titulo>
-                        <p className="legenda">Conectando passarinhos de todo o mundo</p>
+                        <S.FraseDeEfeito className="legenda">Conectando passarinhos de todo o mundo</S.FraseDeEfeito>
                         <S.Botoes>
                         <li>
                             <S.Botao1 className="buttons">Cadastrar</S.Botao1>

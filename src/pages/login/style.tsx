@@ -14,10 +14,10 @@ export const Conteudo = styled.div`
     align-items: center;
     width: 50%;
     margin-left: 2rem;
+`;
 
-    p {
-        font-size: 1.5rem;
-    }
+export const FraseDeEfeito = styled.p`
+    font-size: 1.5rem;
 `;
 
 export const BackImg = styled.img`

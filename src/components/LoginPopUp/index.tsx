@@ -24,17 +24,22 @@ const LoginPopUp: React.FC<LoginPopUpProps> = ({ id='modal', onClose, children }
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const [mensagemVazio, setMensagemVazio] = useState(false);
+
     const [mensagemErro, setMensagemErro] = useState(false);
 
 
-    const { login } = useAuth();
+    const { login, user } = useAuth();
 
     const doLogin = useCallback(async (e: FormEvent) => {
         e.preventDefault();
-        {(email.length == 0 || password.length == 0) && setMensagemErro(true)}
+        {(email.length == 0 || password.length == 0) && setMensagemVazio(true)}
+        {(email.length > 0 && password.length > 0) && setMensagemVazio(false)}
         console.log("oi");
         login(email, password);
-        
+        {(!user && email.length > 0 && password.length > 0) && setMensagemErro(true)}
+
+
     }, [login, email, password]);
 
 
@@ -42,8 +47,9 @@ const LoginPopUp: React.FC<LoginPopUpProps> = ({ id='modal', onClose, children }
         <S.PopupContainer id="modal" onClick={() => onlyOutsideClick}>
             <div className="container">
                 <S.Fechar onClick={onClose}/>
-                <p>Fazer o login</p>
-                {mensagemErro && <p>Os campos estão vazios</p>}
+                <S.Titulo>Fazer o login</S.Titulo>
+                {mensagemVazio && <S.Erro>Todos os campos devem estar preenchidos.</S.Erro>}
+                {mensagemErro && <S.Erro>E-mail ou senha incorreto.</S.Erro>}
                 <S.Form>
                     <Input 
                         type="text"

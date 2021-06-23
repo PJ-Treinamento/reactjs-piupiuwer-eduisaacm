@@ -59,11 +59,9 @@ export const AuthProvider: React.FC = ({ children }) => {
             setUserData({ token, user });
         } catch(error) {
             console.log(error);
-            
+            return("Erro")
         }
     };
-
-    
   
     return (
         <AuthContext.Provider 
@@ -71,7 +69,8 @@ export const AuthProvider: React.FC = ({ children }) => {
                 {
                     login,
                     user: userData.user,
-                    token: userData.token
+                    token: userData.token,
+
                 }
             }
         >

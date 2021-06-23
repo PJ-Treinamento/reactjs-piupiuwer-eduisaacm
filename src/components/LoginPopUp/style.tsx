@@ -70,3 +70,12 @@ export const Botao = styled.button `
     background-color: #2D6A4F;
     color: white;
 `;
+
+export const Erro = styled.p`
+    color: red;
+    font-size: 16px;
+`;
+
+export const Titulo = styled.p`
+    font-size: 1.6rem;
+`;
