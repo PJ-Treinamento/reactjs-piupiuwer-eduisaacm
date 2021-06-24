@@ -10,7 +10,7 @@ export const NavBarContainer = styled.div`
     position: fixed;
     left: 0;
     top: 82px;
-    width: 16vw;
+    width: 16%;
     height: 90%;
     background-color: #B7E4C7;
 

@@ -24,6 +24,10 @@ export interface Piu {
 	updated_at: Date;
 }
 
+export interface Pius {
+	pius: Piu[];
+}
+
 export interface PiuLike {
 	id: string;
 	user: User;

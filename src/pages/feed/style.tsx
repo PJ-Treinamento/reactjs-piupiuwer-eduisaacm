@@ -9,11 +9,11 @@ export const Main = styled.main`
     justify-content: space-between;
     flex-direction: row-reverse;
     font-family: ${fonts.secondary};
-    height: 100vw;
+    height: 100%;
     justify-content: center;
 `;
 
-export const Conteudo = styled.div`
+export const Conteudo = styled.ul`
     margin-top: 100px;
     background-color: white;
     margin-left: 14rem;

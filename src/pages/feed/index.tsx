@@ -3,13 +3,15 @@ import React, {useEffect} from "react";
 
 import Header from "../../components/header/index";
 import NavBar from "../../components/navBar/index";
-import Piu from "../../components/piu/index"
+import Piu from "../../components/piu/index";
+import PostarPiu from "../../components/postarPiu";
 
 import api from "../../services/api";
 
-import * as M from "../../models/index";
+import * as I from "../../models/index";
 import * as S from "./style";
 import { useState } from "react";
+
 
 
 function Feed() {
@@ -22,8 +24,10 @@ function Feed() {
           setPius(response.data);
           console.log(response.data);
         }
+        pius.forEach(element => {
+        });
         loadPius()
-    }, []);
+    }, []);    
         
 
     return(
@@ -34,7 +38,8 @@ function Feed() {
             <S.Main>
                 <NavBar />
                 <S.Conteudo>
-                    <Piu />
+                    <PostarPiu />
+                    <Piu pius={pius} />
                 </S.Conteudo>
             </S.Main>
         </div>

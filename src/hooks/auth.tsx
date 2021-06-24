@@ -59,7 +59,6 @@ export const AuthProvider: React.FC = ({ children }) => {
             setUserData({ token, user });
         } catch(error) {
             console.log(error);
-            return("Erro")
         }
     };
   
