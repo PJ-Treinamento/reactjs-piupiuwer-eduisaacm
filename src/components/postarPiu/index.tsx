@@ -22,14 +22,21 @@ const PostarPiu: React.FC = () => {
 
     const [piuTexto, setPiuTexto] = useState("");
 
+    const [corDeErro, setCorDeErro] = useState("");
+
 
     useEffect(()=>{
         
         setContador(piuTexto.length);
 
         const Validacao = () => {
-            {piuTexto.length == 0 || piuTexto.length > 140 
-                && setMensagemErro(true)
+            if (piuTexto.length > 140) {
+                setCorDeErro("erro")
+            }
+
+            if (piuTexto.length > 0 && piuTexto.length < 140) {
+                setCorDeErro("")
+                setMensagemErro(false)
             }
         }
         
@@ -37,22 +44,29 @@ const PostarPiu: React.FC = () => {
     },[piuTexto.length])
 
     const postarPiu = async () => {
-        await api.post('/pius', { text: piuTexto })
-        window.location.reload();
+        if (piuTexto.length == 0 || piuTexto.length > 140) {
+            setMensagemErro(true)
+            setCorDeErro("erro")
+        } else {
+            setMensagemErro(false)
+            await api.post('/pius', { text: piuTexto })
+            window.location.reload();
+        }
     }
 
     
     return(
         <S.NovoPiuContainer>
+            {mensagemErro && <span className={corDeErro} >Número de caracteres inválidos.</span>}
             <S.Post>
                 <S.ImgPerfilContainer>
                     <S.ImgPerfil src={user.photo} alt={user.first_name} />
                 </S.ImgPerfilContainer>
                 <S.Fala src={Fala}/>
                 <form>
-                    <S.TextArea  value={piuTexto} placeholder="Dê um piu!" onChange={ (e) => setPiuTexto(e.target.value)}></S.TextArea>
+                    <S.TextArea  className={corDeErro} value={piuTexto} placeholder="Dê um piu!" onChange={ (e) => setPiuTexto(e.target.value)}></S.TextArea>
                 </form>
-                <S.Contador>{contador}/140</S.Contador>
+                <S.Contador className={corDeErro}>{contador}/140</S.Contador>
 
             </S.Post>
             <S.IconesBotao>

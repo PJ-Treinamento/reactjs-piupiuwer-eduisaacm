@@ -20,3 +20,15 @@ export const Conteudo = styled.ul`
     width: 46%;
     border-radius: 22px;
 `;
+
+export const BarraDePesquisa = styled.div`
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    padding: 1rem 0;
+
+    input {
+        height: 3rem;
+        position: initial;
+    }
+`;

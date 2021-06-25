@@ -5,6 +5,9 @@ import styled from "styled-components";
 export const NovoPiuContainer = styled.div`
     border-bottom: 2px solid black;
     padding: 17px;
+    .erro {
+        color: red;
+    }
 `;
 
 
@@ -67,11 +70,10 @@ export const BotaoPostar = styled.button`
     height: 2rem;
     border-radius: 0.4rem;
     box-shadow: 2px 3px 6px #00000029;
-    cursor: pointer;
     font-size: 1rem;
     color: white;
     background-color: #2D6A4F;
-    cursor: move;
+    cursor: pointer;
         &:hover {
             background-color: #1d4734;
         }

@@ -4,7 +4,6 @@ const InputStyle = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
     + .input-block {
         margin-top: 1.4rem;
     }

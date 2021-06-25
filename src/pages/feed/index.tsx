@@ -3,8 +3,9 @@ import React, {useEffect} from "react";
 
 import Header from "../../components/header/index";
 import NavBar from "../../components/navBar/index";
-import Piu from "../../components/piu/index";
+import Piu from "../../components/piu";
 import PostarPiu from "../../components/postarPiu";
+import Input from "../../components/input";
 
 import api from "../../services/api";
 
@@ -18,11 +19,18 @@ function Feed() {
 
     const [pius, setPius] = useState([])
 
+    const [filtro, setFiltro] = useState('')
+
+    const [piusFiltrados, setPiusFiltrados] = useState(pius)
+
+    useEffect(() => {
+        setPiusFiltrados(pius.filter((piu: I.Piu) => piu.user.username.startsWith(filtro)))
+    }, [filtro])
+
     useEffect(() => {
         const loadPius = async () => {
           const response = await api.get('/pius');
           setPius(response.data);
-          console.log(response.data);
         }
         pius.forEach(element => {
         });
@@ -39,7 +47,20 @@ function Feed() {
                 <NavBar />
                 <S.Conteudo>
                     <PostarPiu />
-                    <Piu pius={pius} />
+                    <S.BarraDePesquisa>
+                        <div>
+                            <Input 
+                                type="text"
+                                label="Pesquise os pius!"
+                                name="Pesquisa de usuários"
+                                onChange={event => setFiltro(event.target.value)} 
+                            />
+                        </div>
+                    </S.BarraDePesquisa>
+                    
+                    {piusFiltrados.map((piu: I.Piu) => {
+                        return (<Piu key={piu.id} piu={piu} pius={pius}/>)
+                    })}
                 </S.Conteudo>
             </S.Main>
         </div>
